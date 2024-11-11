@@ -1,9 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.MovieDbApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.MovieDbApp" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="appBarLayoutStyle">
+            @style/Theme.AppCompat.Light.NoActionBar
+        </item>
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
     </style>
 
     <style name="Theme.MovieDbApp" parent="Base.Theme.MovieDbApp" />
+    
+    <style name="Theme.MovieDbApplication.MaterialCardView" parent="Theme.MovieDbApp">
+        <item name="cardCornerRadius">5dp</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
 </resources>
