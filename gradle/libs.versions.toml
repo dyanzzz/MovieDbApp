@@ -23,6 +23,7 @@ navigation = "2.8.3"
 glide = "4.13.2"
 room = "2.6.1"
 lottie = "6.4.1"
+shimmer = "0.5.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -56,7 +57,8 @@ okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-i
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compailer = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
-lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+shimmer = { group = "com.facebook.shimmer", name = "shimmer", version.ref = "shimmer" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

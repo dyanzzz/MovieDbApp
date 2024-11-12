@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MovieDbApp</string>
+    <string name="poster">poster</string>
+    <string name="toolbar">toolbar</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="see_more">See More</string>
+    <string name="popular">Popular</string>
+    <string name="backdrop">backdrop</string>
+    <string name="release_date">Release Date</string>
+    <string name="description">Description</string>
+    <string name="status">Status</string>
 </resources>
