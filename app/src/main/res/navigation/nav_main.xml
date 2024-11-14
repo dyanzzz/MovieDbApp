@@ -43,4 +43,13 @@
             android:id="@+id/action_seeMoreFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.rakamin.moviedbapp.features.bookmark.BookmarkFragment"
+        android:label="BookmarkFragment"
+        tools:layout="@layout/fragment_see_more">
+        <action
+            android:id="@+id/action_bookmarkFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

@@ -1,11 +1,13 @@
 package com.rakamin.moviedbapp
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.rakamin.moviedbapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        /*binding.navigation.setupWithNavController(navController)
+        binding.navigation.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment, R.id.bookmarkFragment -> {
@@ -40,6 +42,6 @@ class MainActivity : AppCompatActivity() {
                     binding.navigation.visibility = View.GONE
                 }
             }
-        }*/
+        }
     }
 }
