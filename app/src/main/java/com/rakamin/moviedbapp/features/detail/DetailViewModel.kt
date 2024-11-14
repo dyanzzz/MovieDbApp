@@ -17,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val detailMovieRepository: DetailMovieRepository
+    private val detailMovieRepository: DetailMovieRepository,
+    private val movieLocalRepository: MovieLocalRepository
 ): ViewModel() {
     private val _detailMovie = MutableStateFlow<ResponseResult<DetailMovieResponse>>(ResponseResult.Loading)
     var detailMovie = _detailMovie.asLiveData()
@@ -42,7 +43,7 @@ class DetailViewModel @Inject constructor(
         }
     }
 
-    /*private var _isBookmark = MutableStateFlow(false)
+    private var _isBookmark = MutableStateFlow(false)
     val isBookmark = _isBookmark.asLiveData()
     fun isBookmarked(movieId: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -55,5 +56,5 @@ class DetailViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             movieLocalRepository.setBookmark(movie, isBookmark)
         }
-    }*/
+    }
 }

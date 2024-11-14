@@ -16,7 +16,6 @@
         android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_main">
@@ -42,39 +41,41 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/dark_overlay"/>
+                    android:background="@color/dark_overlay" />
 
             </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_alignParentBottom="true"
-                android:padding="@dimen/spacing_medium"
+                android:layout_marginTop="210dp"
                 android:background="@drawable/bg_detail"
-                android:layout_marginTop="210dp">
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_medium">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/spacing_medium"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/tv_title"
+                        style="@style/Theme.MovieDbApp.TextView.Header"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/Theme.MovieDbApp.TextView.Header"
-                        tools:text="Spiderman: No Way Home"/>
+                        tools:text="Spiderman: No Way Home" />
+
                     <TextView
                         android:id="@+id/tv_rating"
+                        style="@style/Theme.MovieDbApp.TextView.Body"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:drawableStartCompat="@drawable/ic_star"
                         android:gravity="center_vertical"
+                        app:drawableStartCompat="@drawable/ic_star"
                         app:drawableTint="@color/yellow"
-                        style="@style/Theme.MovieDbApp.TextView.Body"
-                        tools:text="9.1/10 IMDb"/>
+                        tools:text="9.1/10 IMDb" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -87,55 +88,61 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/release_date"/>
+                            android:text="@string/release_date" />
+
                         <TextView
                             android:id="@+id/tv_release_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="2024-10-20"/>
+                            tools:text="2024-10-20" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/popular"/>
+                            android:text="@string/popular" />
+
                         <TextView
                             android:id="@+id/tv_popularity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="60000"/>
+                            tools:text="60000" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/status"/>
+                            android:text="@string/status" />
+
                         <TextView
                             android:id="@+id/tv_status"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="Release"/>
+                            tools:text="Release" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -143,44 +150,46 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
+                        style="@style/Theme.MovieDbApp.TextView.Title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/Theme.MovieDbApp.TextView.Title"
-                        android:text="@string/description"/>
+                        android:text="@string/description" />
 
                     <TextView
                         android:id="@+id/tv_description"
+                        style="@style/Theme.MovieDbApp.TextView.Body"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/Theme.MovieDbApp.TextView.Body"
-                        tools:text="Description"/>
+                        tools:text="Description" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
+                style="@style/Theme.MovieDbApp.MaterialCardView"
                 android:layout_width="116dp"
                 android:layout_height="172dp"
                 android:layout_alignParentEnd="true"
-                style="@style/Theme.MovieDbApp.MaterialCardView"
-                android:layout_marginTop="92dp"
-                android:layout_marginHorizontal="@dimen/spacing_medium">
+                android:layout_marginHorizontal="@dimen/spacing_medium"
+                android:layout_marginTop="92dp">
+
                 <ImageView
                     android:id="@+id/img_poster"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
                     android:contentDescription="@string/poster"
-                    tools:src="@drawable/poster"/>
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/poster" />
             </com.google.android.material.card.MaterialCardView>
 
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_bookmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -189,6 +198,6 @@
         android:contentDescription="@string/bookmark"
         android:src="@drawable/ic_bookmark_border"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />-->
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

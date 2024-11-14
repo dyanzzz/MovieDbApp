@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.rakamin.moviedbapp.BuildConfig
+import com.rakamin.moviedbapp.R
 import com.rakamin.moviedbapp.databinding.FragmentDetailBinding
 import com.rakamin.moviedbapp.domain.model.ResponseResult
 import com.rakamin.moviedbapp.domain.model.response.DetailMovieResponse
@@ -40,6 +41,9 @@ class DetailFragment: Fragment() {
 
         viewModel.getDetailMovie(args.movieId)
         onObserve()
+
+        viewModel.isBookmarked(args.movieId)
+        observeBookmark()
     }
 
     private fun initToolbar(title: String) = with(binding) {
@@ -54,6 +58,7 @@ class DetailFragment: Fragment() {
                 is ResponseResult.Loading -> println("Loading fragment")
                 is ResponseResult.Error -> println("Error fragment")
                 is ResponseResult.Success -> {
+                    detailMovie = movie.data
                     
                     initToolbar(movie.data.title ?: "")
                     onSetupUi(movie.data)
@@ -84,5 +89,27 @@ class DetailFragment: Fragment() {
         tvStatus.text = movie.status
         tvRating.text = movie.voteAverage.toString()
         tvPopularity.text = movie.popularity.toString()
+    }
+
+    private fun observeBookmark() = with(binding){
+        viewModel.isBookmark.observe(viewLifecycleOwner) { result ->
+            isBookmark = result
+            fabBookmark.setImageResource(
+                if (result) R.drawable.ic_bookmark_added else R.drawable.ic_bookmark_border
+            )
+        }
+
+        setupBookmark()
+    }
+
+    private fun setupBookmark() = with(binding) {
+        fabBookmark.setOnClickListener {
+            println(detailMovie.toString())
+            detailMovie?.let { data -> viewModel.setBookmark(data, isBookmark) }
+            isBookmark = !isBookmark
+            fabBookmark.setImageResource(
+                if (isBookmark) R.drawable.ic_bookmark_added else R.drawable.ic_bookmark_border
+            )
+        }
     }
 }
