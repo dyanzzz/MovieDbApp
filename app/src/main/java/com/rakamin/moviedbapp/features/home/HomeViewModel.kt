@@ -41,4 +41,28 @@ class HomeViewModel @Inject constructor(
                 }
         }
     }
+
+    private val _popularMovies = MutableStateFlow<ResponseResult<List<MovieResponse>>>(ResponseResult.Loading)
+    val popularMovies = _popularMovies.asLiveData()
+    fun getPopularMovies() {
+        viewModelScope.launch(Dispatchers.IO) {
+            movieRepository.getMoviePopular()
+                .catch {
+                    _popularMovies.emit(ResponseResult.Error(it))
+                }
+                .collectLatest { result ->
+                    when(result) {
+                        is ResponseResult.Loading -> {
+                            _popularMovies.emit(ResponseResult.Loading)
+                        }
+                        is ResponseResult.Error -> {
+                            _popularMovies.emit(ResponseResult.Error(result.throwable))
+                        }
+                        is ResponseResult.Success -> {
+                            _popularMovies.emit(ResponseResult.Success(result.data))
+                        }
+                    }
+                }
+        }
+    }
 }

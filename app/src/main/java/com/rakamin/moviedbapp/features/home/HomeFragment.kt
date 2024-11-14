@@ -46,16 +46,19 @@ class HomeFragment: Fragment() {
     }
     
     private fun onSetupUi() = with(binding) {
-        viewModel.getNowPlayingMovies()
-        
         nowPlayingAdapter = NowPlayingAdapter()
         popularAdapter = PopularAdapter()
         
         nowPlayingAdapter.itemOnClick = {
             gotoDetail(it)
         }
+        popularAdapter.itemOnClick = {
+            gotoDetail(it)
+        }
         
         rvNowPlaying.adapter = nowPlayingAdapter
+        rvPopular.adapter = popularAdapter
+        
         btnSeeMorePopular.setOnClickListener {
             gotoSeeMore(POPULAR)
         }
@@ -65,6 +68,7 @@ class HomeFragment: Fragment() {
     }
     
     private fun onObserve() {
+        viewModel.getNowPlayingMovies()
         viewModel.nowPlayingMovies.observe(viewLifecycleOwner) { movie ->
             when (movie) {
                 is ResponseResult.Loading -> {
@@ -76,6 +80,21 @@ class HomeFragment: Fragment() {
                 }
                 is ResponseResult.Success -> {
                     nowPlayingAdapter.submitList(movie.data.slice(0..5))
+                }
+            }
+        }
+
+        viewModel.getPopularMovies()
+        viewModel.popularMovies.observe(viewLifecycleOwner) { movie ->
+            when (movie) {
+                is ResponseResult.Loading -> {
+                    println("LOADING")
+                }
+                is ResponseResult.Error -> {
+                    Toast.makeText(requireContext(), movie.throwable.message, Toast.LENGTH_SHORT).show()
+                }
+                is ResponseResult.Success -> {
+                    popularAdapter.submitList(movie.data.slice(0..5))
                 }
             }
         }
