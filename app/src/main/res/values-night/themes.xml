@@ -39,10 +39,4 @@
         <item name="android:textSize">@dimen/font_small</item>
         <item name="android:textColor">@color/grey</item>
     </style>
-
-    <style name="Theme.MovieDbApp.TextView.Tag" parent="Theme.MovieDbApp.TextView">
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/grey</item>
-        <item name="android:textSize">@dimen/font_small</item>
-    </style>
 </resources>
