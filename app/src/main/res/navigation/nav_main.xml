@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_seeMoreFragment"
+            app:destination="@id/seeMoreFragment" />
     </fragment>
     
     <fragment
@@ -23,5 +26,21 @@
         <argument
             android:name="movieId"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/seeMoreFragment"
+        android:name="com.rakamin.moviedbapp.features.seemore.SeeMoreFragment"
+        android:label="SeeMoreFragment"
+        tools:layout="@layout/fragment_see_more">
+
+        <argument
+            android:name="type"
+            android:defaultValue="null"
+            app:nullable="true"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_seeMoreFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
 </navigation>

@@ -13,6 +13,7 @@ import com.rakamin.moviedbapp.uiadapter.NowPlayingAdapter
 import com.rakamin.moviedbapp.uiadapter.PopularAdapter
 import com.rakamin.moviedbapp.utils.FragmentExtension.setToolbar
 import com.rakamin.moviedbapp.utils.NOW_PLAYING
+import com.rakamin.moviedbapp.utils.POPULAR
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -56,7 +57,7 @@ class HomeFragment: Fragment() {
         
         rvNowPlaying.adapter = nowPlayingAdapter
         btnSeeMorePopular.setOnClickListener {
-            //gotoSeeMore(POPULAR)
+            gotoSeeMore(POPULAR)
         }
         btnSeeMoreNowPlaying.setOnClickListener {
             gotoSeeMore(NOW_PLAYING)

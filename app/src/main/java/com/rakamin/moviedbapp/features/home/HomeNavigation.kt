@@ -9,5 +9,6 @@ fun HomeFragment.gotoDetail(movie: MovieResponse) {
 }
 
 fun HomeFragment.gotoSeeMore(type: String) {
-    println("gotoSeeMore: $type")
+    val action = HomeFragmentDirections.actionHomeFragmentToSeeMoreFragment(type)
+    findNavController().navigate(action)
 }

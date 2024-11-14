@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/img_poster"
             android:layout_width="85dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
